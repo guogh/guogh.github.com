@@ -1,0 +1,43 @@
+<p>##Ubuntu下配置samba实现文件夹共享
+####一. samba的安装:</p>
+<pre><code>1 sudo apt-get install samba
+2 sudo apt-get install smbfs
+</code></pre>
+
+<p>####二. 创建共享目录:</p>
+<pre><code>1 mkdir /home/xiaohua/share      //xiaohua为用户主目录
+2 sudo chmod 777 /home/xiaohua/share
+</code></pre>
+<p>####三. 创建Samba配置文件:</p>
+
+<p>#####1. 保存现有的配置文件</p>
+<pre><code>1 sudo cp /etc/samba/smb.conf  /etc/samba/smb.conf.bak
+</code></pre>
+<p>#####2. 修改现配置文件</p>
+<pre><code>sudo gedit /etc/samba/smb.conf
+</code></pre>
+<p>然后在smb.conf最后添加</p>
+<pre><code>[share]
+      path = /home/xiaohua/share  //记得修改用户主目录
+      available = yes
+      browsealbe = yes
+      public = yes
+      writable = yes
+</code></pre>
+<p>####四. 创建samba帐户</p>
+<pre><code>1   sudo touch /etc/samba/smbpasswd
+2   sudo smbpasswd -a xiaohua
+</code></pre>
+<p>然后会要求你输入samba帐户的密码</p>
+
+<p>［如果没有第四步，当你登录时会提示 session setup failed:NT_STATUS_LOGON_FAILURE］</p>
+
+<p>####五. 重启samba服务器</p>
+<pre><code>1 sudo service smbd restart
+</code></pre>
+<p>####六. 测试</p>
+<pre><code>smbclient -L //localhost/share
+</code></pre>
+<p>####七.使用</p>
+
+<p>可以到windows下输入ip使用了，在文件夹处输入 “\” + “Ubuntu机器的ip或主机名” + “\” + “share”</p>

@@ -1,0 +1,12 @@
+#使用pygments来进行代码高亮
+highlighter: pygments
+
+#使自定义插件无效，此命令为github上默认的命令
+safe: true
+
+#当工程中文件有变动后，就重新组织工程内容
+#auto: true
+
+#你还可以给 Kramdown 传递值为 “GFM” 的 input 选项，从而启用 Github 扩展的 Markdown 语法。
+kramdown:
+  input: GFM
