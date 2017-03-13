@@ -1,4 +1,11 @@
-##Ubuntu下配置samba实现文件夹共享
+---
+layout: default
+title: Ubuntu下配置samba实现文件夹共享
+description: 这里的description是自定义属性。
+categories: [web-build]
+tags: [github-page, jekyll, liquid]
+---
+
 ####一. samba的安装:
 ```
 1 sudo apt-get install samba
