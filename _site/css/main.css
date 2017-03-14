@@ -448,11 +448,18 @@ body {
   margin: 0 auto;
   width: 700px;
 }
+@media (max-width:700px){
+  .main-inner {
+  	margin-left: 3%;
+    width: 94%;
+  }
+}
 @media (min-width: 1600px) {
   .container .main-inner {
     width: 900px;
   }
 }
+
 .footer {
   position: absolute;
   left: 0;
