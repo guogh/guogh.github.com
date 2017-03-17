@@ -8,7 +8,7 @@ layout: default
 			<div id="content" class="content">
 				<section id="posts" class="posts-expand">
 					{% for post in site.posts %}
-					<article class="post post-type-normal home-page-list">
+					<article class="post post-type-normal home-page-list" style="opacity: 1;">
 						<header class="post-header">
 							<h2 class="post-title" itemprop="name headline">
                 					<a class="post-title-link" href="{{ post.url }}" itemprop="url" style="border-bottom: 0px solid #999;">
@@ -33,9 +33,12 @@ layout: default
               					</span>
 								<span class="post-meta-item-text">分类于</span>
 								<span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  					<a href="{{ post.categories }}" itemprop="url" rel="index">
-                    						<span itemprop="name">{{ post.categories }}</span>
-									</a>
+									
+									{% for categorie in post.categories %}
+                  					<a href="/categories/signle_categories.html?cat={{ categorie }}" itemprop="url" rel="index">
+                    						<span itemprop="name">{{ categorie }}</span>
+									</a>&nbsp;&nbsp;
+									{% endfor %}
 								</span>
 
 							</div>

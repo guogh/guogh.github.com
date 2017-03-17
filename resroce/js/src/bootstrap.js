@@ -23,22 +23,22 @@ $(document).ready(function () {
   });
 
 
-  CONFIG.fancybox && NexT.utils.wrapImageWithFancyBox();
+CONFIG.fancybox && NexT.utils.wrapImageWithFancyBox();
   NexT.utils.embeddedVideoTransformer();
   NexT.utils.addActiveClassToMenuItem();
 
-
-  // Define Motion Sequence.
-  NexT.motion.integrator
-    .add(NexT.motion.middleWares.logo)
-    .add(NexT.motion.middleWares.menu)
-    .add(NexT.motion.middleWares.postList)
-    .add(NexT.motion.middleWares.sidebar);
+//加载动画
+//// Define Motion Sequence.
+//NexT.motion.integrator
+//  .add(NexT.motion.middleWares.logo)
+//  .add(NexT.motion.middleWares.menu)
+//  .add(NexT.motion.middleWares.postList)
+//  .add(NexT.motion.middleWares.sidebar);
 
   $(document).trigger('motion:before');
 
   // Bootstrap Motion.
-  CONFIG.motion && NexT.motion.integrator.bootstrap();
+//CONFIG.motion && NexT.motion.integrator.bootstrap();
 
   $(document).trigger('bootstrap:after');
 });
