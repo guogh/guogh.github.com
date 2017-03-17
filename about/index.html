@@ -1,4 +1,4 @@
----
+--- 
 layout: default 
 ---
 
@@ -6,27 +6,41 @@ layout: default
 	<div class="main-inner">
 		<div class="content-wrap">
 			<div id="content" class="content">
-				<h3>文章列表</h3>
-				<ul>
-					{% for post in site.posts %}
-					<li>
-						<a href="{{ post.url }}">{{ post.title }}</a>
-					</li>
-					{% endfor %}
-				</ul>
+				<div id="posts" class="posts-expand">
+					<header class="post-header">
+						<h2 class="post-title" itemprop="name headline">关于</h2>
+					</header>
 
-				<div id="categories-3" class="left">
-					<h3>分类</h3>
-					<ul>
-						{% for cat in site.categories %} {{ cat[0] }} {% endfor %}
+					<h2 id="个人简介：">
+						<a href="#个人简介：" class="headerlink" title="个人简介："></a>个人简介：
+					</h2>
+					<ul style="list-style: none;">
+						<li>在 宥</li>
+						<li>iOS开发者、C/C++嵌入式开发者</li>
+						<li>来自江西 现居杭州</li>
+						<li>Email: ziayoutianxia@163.com </li>
 					</ul>
-				</div>
-				
-				<div id="" class="left">
-					<h3>标签</h3>
-					<ul>
-						{% for cat in site.tags %} {{ cat[0] }} {% endfor %}
+					
+					
+					<h3 id="关于本站：">
+						<a href="#关于本站：" class="headerlink" title="关于本站："></a>关于本站：
+					</h3>
+					<ul style="list-style: none;">
+						<li>hexo主题 - 精于心 简于形 
+							<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT.Mist</a>
+						</li>
+						<li>开始于2017年3月10日</li>
 					</ul>
+					
+					<h2 id="其他">
+						<a href="#其他流言" class="headerlink" title="其他流言"></a>其他流言
+					</h2>
+					<ul style="list-style: none;">
+						<li>篮球</li>
+						<li>足球</li>
+						<li>Dota</li>
+					</ul>
+
 				</div>
 			</div>
 		</div>

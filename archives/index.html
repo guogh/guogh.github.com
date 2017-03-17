@@ -1,4 +1,4 @@
----
+--- 
 layout: default 
 ---
 
@@ -6,28 +6,54 @@ layout: default
 	<div class="main-inner">
 		<div class="content-wrap">
 			<div id="content" class="content">
-				<h3>文章列表</h3>
-				<ul>
-					{% for post in site.posts %}
-					<li>
-						<a href="{{ post.url }}">{{ post.title }}</a>
-					</li>
-					{% endfor %}
-				</ul>
 
-				<div id="categories-3" class="left">
-					<h3>分类</h3>
-					<ul>
-						{% for cat in site.categories %} {{ cat[0] }} {% endfor %}
-					</ul>
-				</div>
-				
-				<div id="" class="left">
-					<h3>标签</h3>
-					<ul>
-						{% for cat in site.tags %} {{ cat[0] }} {% endfor %}
-					</ul>
-				</div>
+				<section id="posts" class="posts-collapse">
+					<span class="archive-move-on"></span>
+					<span class="archive-page-counter" style="position: relative;top: 3px;left: 20px;">
+						目前共计 {{ site.posts | size }} 篇日志了，继续努力！
+    					</span>
+
+					{% assign freestyle = 20000 %}
+					
+					{% for post in site.posts %}
+						    {% if forloop.index0 == 0 %}
+        							<div class="collection-title">
+          							<h2 class="archive-year motion-element" style="opacity: 1; display: block; transform: translateX(0px);">
+          								{{ post.date | date: "%Y" }}
+          							</h2>
+        							</div>
+        							{% assign freestyle =  post.date | date: "%Y"  %}
+        						{% else %}
+        							{% assign freestyle2 = post.date | date: "%Y" %}
+        							{% if freestyle !=  freestyle2  %}
+        								<div class="collection-title">
+          								<h2 class="archive-year motion-element"  style="opacity: 1; display: block; transform: translateX(0px);">
+          									{{ post.date | date: "%Y" }}
+          								</h2>
+        								</div>
+        								{% assign freestyle =  post.date | date: "%Y"  %}
+        							{% endif %}
+        							
+    							{% endif %}
+        					
+					<article class="post post-type-normal" style="opacity: 1; display: block; transform: translateY(0px);">
+						<header class="post-header">
+							<h2 class="post-title">
+            						<a class="post-title-link" href="{{ post.url }}" itemprop="url">
+                						<span itemprop="name">{{ post.title }}</span>
+            						</a>
+      						</h2>
+
+							<div class="post-meta">
+								<time class="post-time" itemprop="dateCreated" datetime="{{ post.date }}">{{ post.date | date: "%m-%d" }}</time>
+							</div>
+							
+						</header>
+					</article>
+					{% endfor %}
+					
+					
+				</section>
 			</div>
 		</div>
 	</div>

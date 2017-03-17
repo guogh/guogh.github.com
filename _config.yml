@@ -12,3 +12,6 @@ markdown: kramdown
 kramdown:
   input:  GFM
 #  enable_coderay: true
+
+#分页功能，每页3篇
+#paginate: 3
